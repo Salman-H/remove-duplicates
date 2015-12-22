@@ -97,30 +97,63 @@ A few approaches to the problem of removing duplicates from a sorted array.
 	<h2 style="color: gray">Solution 2</h2>
 	<p>In this solution, the array is mutated such that the list of integers with duplicates removed ends up in the front of the array while duplicates are pushed toward the back. i is the slow-running pointer, and j is the fast-running pointer. j is incremented on each iteration while i is only conditionally incremented, subject to the condition that nums[i] != nums[j]. In other words, if an integer has a number of duplicates, say, in the array […,3, 3, 3, 3, 7,...], then i will stay with the first occurrence of the duplicate (the second 3) while j increments and skips over every other occurrence of that integer until it comes across the next new integer (7) in the array, at which point, the second 3 will be replaced by the value of 7, and i will be incremented to the third 3. </p>
 </div>
-<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; color: gray; line-height: 125%"> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #f8f8f2">public</span> <span style="color: #f8f8f2">int</span> <span style="color: #f8f8f2">removeDuplicates(int[]</span> <span style="color: #f8f8f2">nums)</span> <span style="color: #f8f8f2">{</span>
+
+<div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+	<pre style="margin: 0; line-height: 125%">
+		<span style="color: #f8f8f2">public</span> 
+		<span style="color: #f8f8f2">int</span> 
+		<span style="color: #f8f8f2">removeDuplicates(int[]</span> 
+		<span style="color: #f8f8f2">nums)</span> 
+		<span style="color: #f8f8f2">{</span>
     
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(nums</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">length</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #66d9ef">if</span> 
+	<span style="color: #f8f8f2">(nums</span>
+	<span style="color: #f92672">.</span>
+	<span style="color: #f8f8f2">length</span> 
+	<span style="color: #f92672">==</span> 
+	<span style="color: #ae81ff">0</span>
+	<span style="color: #f8f8f2">)</span> 
+	<span style="color: #66d9ef">return</span> 
+	<span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
     
-    <span style="color: #f8f8f2">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">nums</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">length;</span> <span style="color: #f8f8f2">j</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(nums[j]</span> <span style="color: #f92672">!=</span> <span style="color: #f8f8f2">nums[i])</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">i</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-            <span style="color: #f8f8f2">nums[i]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">nums[j];</span>
+    <span style="color: #f8f8f2">int</span> 
+	<span style="color: #f8f8f2">i</span> 
+	<span style="color: #f92672">=</span> 
+	<span style="color: #ae81ff">0</span>
+	<span style="color: #f8f8f2">;</span>
+    <span style="color: #66d9ef">for</span> 
+	<span style="color: #f8f8f2">(int</span> 
+	<span style="color: #f8f8f2">j</span> 
+	<span style="color: #f92672">=</span> 
+	<span style="color: #ae81ff">1</span>
+	<span style="color: #f8f8f2">;</span> 
+	<span style="color: #f8f8f2">j</span> 
+	<span style="color: #f92672">&lt;</span> 
+	<span style="color: #f8f8f2">nums</span>
+	<span style="color: #f92672">.</span>
+	<span style="color: #f8f8f2">length;</span> 
+	<span style="color: #f8f8f2">j</span>
+	<span style="color: #f92672">++</span>
+	<span style="color: #f8f8f2">)</span> 
+	<span style="color: #f8f8f2">{</span>
+        <span style="color: #66d9ef">if</span> 
+		<span style="color: #f8f8f2">(nums[j]</span> 
+		<span style="color: #f92672">!=</span> 
+		<span style="color: #f8f8f2">nums[i])</span> 
+		<span style="color: #f8f8f2">{</span>
+            <span style="color: #f8f8f2">i</span>
+			<span style="color: #f92672">++</span>
+			<span style="color: #f8f8f2">;</span>
+            <span style="color: #f8f8f2">nums[i]</span> 
+			<span style="color: #f92672">=</span> 
+			<span style="color: #f8f8f2">nums[j];</span>
         <span style="color: #f8f8f2">}</span>
     <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #66d9ef">return</span> 
+	<span style="color: #f8f8f2">i</span> 
+	<span style="color: #f92672">+</span> 
+	<span style="color: #ae81ff">1</span>
+	<span style="color: #f8f8f2">;</span>
 <span style="color: #f8f8f2">}</span>
-</pre></td></tr></table></div>
+</pre></div>
 
